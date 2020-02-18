@@ -28,8 +28,14 @@ public class TestALLRetailerList {
 		retailerList = CgRepo.rlist;
 	}
 	
+
 	@Test
 	public void test1() {
+		assertEquals(retailerList, service.getListOfRetailer());
+	}
+	
+	@Test
+	public void test2() {
 		assertEquals(retailerList, service.getListOfRetailer());
 	}
 	
