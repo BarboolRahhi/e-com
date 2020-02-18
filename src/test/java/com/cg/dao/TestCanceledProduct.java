@@ -22,7 +22,7 @@ public class TestCanceledProduct {
 	}
 	
 	@Test
-	public void test3() {
+	public void test2() {
 		assertThrows(ProductNotFound.class, ()-> service.getCancelProductReport());
 	}
 }

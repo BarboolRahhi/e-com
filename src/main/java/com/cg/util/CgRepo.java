@@ -17,7 +17,11 @@ public class CgRepo {
  	
 	static {
 
-		//-----Product List---prod_id
+		/**
+		 * Product List having name, info, price, retailer_id
+		 * 
+		 * Product p1 = new Product(product_id, product_name, product_info, retailer_id, product_price);
+		 */
 		Product p1 = new Product(101, "Nokia C50", "Ram - 4gb Rom - 16gb", 1, 9500);
 		Product p2 = new Product(102, "Charger C50", "Ram - 4gb Rom - 16gb", 2, 500);
 		Product p3 = new Product(103, "Fan", "Watt - 200w Rate - 4", 1, 3000);
@@ -28,15 +32,24 @@ public class CgRepo {
 		allProductlist.add(p3);
 		allProductlist.add(p4);
 		
+		// Product List Of Retailer one having four product
 		List<Product> plist1 = new ArrayList<>();
 		plist1.add(p1);
 		plist1.add(p3);
 		plist1.add(p4);
 		
+		// Product List Of Retailer second having one product only
 		List<Product> plist2 = new ArrayList<>();
 		plist2.add(p2);
 		
+		// Product List Of Retailer third having no product
 		List<Product> plist3 = new ArrayList<>();
+		
+		/**
+		 * Order List having product, Ordertatus and Date
+		 * 
+		 * Order obj = new Order(order_id, product, order_status, order_date);
+		 */
 		
 		Order o1 = new Order(1001, p1, OrderStatus.DILIVERED, LocalDate.of(2020, 2, 20));
 		Order o2 = new Order(1002, p3, OrderStatus.DILIVERED, LocalDate.of(2020, 1, 14));
@@ -47,6 +60,12 @@ public class CgRepo {
 		olist.add(o2);
 		olist.add(o3);
 		olist.add(o4);
+		
+		/**
+		 *RetailerInventory List having list of product,
+		 *
+		 *RetailerInventory r1 = new RetailerInventory(retailer_date, retailer_name, list_of_product, join_date);
+		 */
 		 
 		RetailerInventory r1 = new RetailerInventory(1, "Agay Sharma", plist1, LocalDateTime.of(2017, 1, 23, 9, 4));
 		RetailerInventory r2 = new RetailerInventory(2, "Rahhi Barbool", plist2,  LocalDateTime.of(2016, 4, 17, 1, 45));
