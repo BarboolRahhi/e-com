@@ -2,7 +2,11 @@ package com.cg.ui;
 
 import java.util.Scanner;
 
+import com.cg.dao.RetailerInventoryDao;
+import com.cg.dao.RetailerInventoryDaoImpl;
 import com.cg.util.Constant;
+import com.cg.util.OrderStatus;
+import com.cg.util.ProductNotFound;
 
 public class ReportMainUI {
 
