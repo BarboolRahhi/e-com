@@ -1,4 +1,4 @@
-package com.cg.dao;
+package com.cg.service;
 
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -17,6 +17,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import com.cg.dao.RetailerInventoryDao;
 import com.cg.entity.Product;
 import com.cg.entity.RetailerInventory;
 import com.cg.service.RetailerInventoryService;

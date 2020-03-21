@@ -1,4 +1,4 @@
-package com.cg.dao;
+package com.cg.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,12 +20,12 @@ import com.cg.util.CgRepo;
 
 public class TestALLRetailerList {
 
-	static RetailerInventoryDao dao;
+	static RetailerInventoryService service;
 	static List<RetailerInventory> rlist; 
 
 	@BeforeAll
 	public static void beforeAll() {
-		dao = new RetailerInventoryDaoImpl();
+		service = new RetailerInventoryServiceImpl();
 	}
 
 	@BeforeEach
@@ -62,12 +62,12 @@ public class TestALLRetailerList {
 
 	@Test
 	public void test1() {
-		assertEquals(rlist, dao.getListOfRetailer());
+		assertEquals(rlist, service.getListOfRetailer());
 	}
 
 	@Test
 	public void test2() {
-		assertEquals(3, dao.getListOfRetailer().size());
+		assertEquals(3, service.getListOfRetailer().size());
 	}
 
 }

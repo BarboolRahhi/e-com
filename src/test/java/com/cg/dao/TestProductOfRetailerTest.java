@@ -22,15 +22,15 @@ import com.cg.util.ProductNotFound;
 import com.cg.util.ValidationException;
 
 
-public class TestProductOfRetaileTest {
+public class TestProductOfRetailerTest {
 
-	static RetailerInventoryService service;
+	static RetailerInventoryDao dao;
 	static List<RetailerInventory> rlist;
 	static List<Product> plist1;
 
 	@BeforeAll
 	public static void beforeAll() {
-		service = new RetailerInventoryServiceImpl();
+		dao = new RetailerInventoryDaoImpl();
 	}
 
 	@BeforeEach
@@ -55,28 +55,13 @@ public class TestProductOfRetaileTest {
 
 	@Test
 	public void testReatiler1() {
-		assertThrows(IdNotFound.class, () -> service.getProductReportOfRetailer("4"));
+		assertThrows(IdNotFound.class, () -> dao.getProductReportOfRetailer(4));
 	}
 
 	@Test
-	public void test2() {
-		assertThrows(ValidationException.class, () -> service.getProductReportOfRetailer("4fg"));
-	}
-
-	@Test
-	public void test3() {
-		assertThrows(ValidationException.class, () -> service.getProductReportOfRetailer("-12"));
-	}
-
-	@Test
-	public void test4() {
-		assertThrows(ValidationException.class, () -> service.getProductReportOfRetailer("12./"));
-	}
-
-	@Test
-	public void test5() throws ProductNotFound, IdNotFound, ValidationException {
+	public void test2() throws ProductNotFound, IdNotFound, ValidationException {
 		assertEquals(plist1,
-				service.getProductReportOfRetailer("1"));
+				dao.getProductReportOfRetailer(1));
 	}
 
 }

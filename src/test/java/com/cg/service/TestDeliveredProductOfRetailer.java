@@ -1,4 +1,4 @@
-package com.cg.dao;
+package com.cg.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,11 +9,14 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.cg.entity.Order;
 import com.cg.entity.Product;
 import com.cg.entity.RetailerInventory;
+import com.cg.service.RetailerInventoryService;
+import com.cg.service.RetailerInventoryServiceImpl;
 import com.cg.util.IdNotFound;
 import com.cg.util.OrderStatus;
 import com.cg.util.ProductNotFound;
@@ -22,13 +25,13 @@ import com.cg.util.ValidationException;
 
 public class TestDeliveredProductOfRetailer {
 
-	static RetailerInventoryDao dao;
+	static RetailerInventoryService service;
 	static List<RetailerInventory> retailerList; 
 	static List<Order> orderList; 
 	
 	@BeforeAll
 	public static void beforeAll() {
-		dao = new RetailerInventoryDaoImpl();
+		service = new RetailerInventoryServiceImpl();
 	}
 	
 	@BeforeEach
@@ -44,17 +47,22 @@ public class TestDeliveredProductOfRetailer {
 	
 	@Test
 	public void test1() {
-		assertThrows(IdNotFound.class, ()-> dao.getDeliveredProductReportOfRetailer(56));
+		assertThrows(IdNotFound.class, ()-> service.getDeliveredProductReportOfRetailer("56"));
+	}
+	
+	@Test
+	public void test2() {
+		assertThrows(ValidationException.class, ()-> service.getDeliveredProductReportOfRetailer("2df"));
 	}
 	
 	@Test
 	public void test3() {
-		assertThrows(ProductNotFound.class, ()-> dao.getDeliveredProductReportOfRetailer(2));
+		assertThrows(ProductNotFound.class, ()-> service.getDeliveredProductReportOfRetailer("2"));
 	}
 	
 	@Test
 	public void test4() throws ProductNotFound, IdNotFound, ValidationException {
-		assertEquals(orderList, dao.getDeliveredProductReportOfRetailer(1));
+		assertEquals(orderList, service.getDeliveredProductReportOfRetailer("1"));
 	}
 	
 }

@@ -14,7 +14,7 @@ public interface RetailerInventoryService {
 	
 	List<RetailerInventory> getListOfRetailer();
 	List<Product> getProductReportOfRetailer(String id) throws IdNotFound, ProductNotFound, ValidationException;
-	List<Order> getAllDeliveredProductReport() throws ProductNotFound;
+	List<Order> getDeliveredProductReport() throws ProductNotFound;
 	List<Order> getDeliveredProductReportOfRetailer(String id) throws IdNotFound, ProductNotFound, ValidationException;
 	List<Order> getDispachedProductReport() throws ProductNotFound;
 	List<Order> getCancelProductReport() throws ProductNotFound;

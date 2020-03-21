@@ -35,7 +35,7 @@ public class ReportUIImpl implements ReportUI {
 	@Override
 	public void displayAllDeliveredProductReport() {
 		try {
-			displayOrder(service.getAllDeliveredProductReport());
+			displayOrder(service.getDeliveredProductReport());
 		} catch (ProductNotFound e) {
 			System.out.println(e.getMessage());
 		} 

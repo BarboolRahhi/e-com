@@ -36,7 +36,7 @@ public class RetailerInventoryDaoImpl implements RetailerInventoryDao {
 
 		if (list.isEmpty())
 			throw new ProductNotFound(Constant.NO_PRODUCT_FOR_RETAILER + id);
-
+		
 		return list;
 	}
 

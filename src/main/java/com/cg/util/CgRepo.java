@@ -28,6 +28,7 @@ public class CgRepo {
 		Product p4 = new Product(104, "hp Laptop", "Screen - 15in Ram - 16gb", 1, 45000);
 		Product p5 = new Product(105, "Chair", "Max Weight - 150kg", 4, 300);
 		Product p6 = new Product(106, "Harry Potter", "Story Book Rate - 5", 4, 450);
+		Product p7 = new Product(107, "Nitro 5", "graphic 4gb", 2, 50000);
 
 		productList.add(p1);
 		productList.add(p2);
@@ -35,6 +36,7 @@ public class CgRepo {
 		productList.add(p4);
 		productList.add(p5);
 		productList.add(p6);
+		productList.add(p7);
 
 		// Product List Of Retailer one having four product
 		List<Product> plist1 = new ArrayList<>();
@@ -45,6 +47,7 @@ public class CgRepo {
 		// Product List Of Retailer second having one product only
 		List<Product> plist2 = new ArrayList<>();
 		plist2.add(p2);
+		plist2.add(p7);
 
 		// Product List Of Retailer third having no product
 		List<Product> plist3 = new ArrayList<>();
@@ -63,12 +66,14 @@ public class CgRepo {
 		Order o1 = new Order(1001, p1, OrderStatus.DILIVERED, LocalDate.of(2020, 2, 20));
 		Order o2 = new Order(1002, p3, OrderStatus.DILIVERED, LocalDate.of(2020, 1, 14));
 		Order o3 = new Order(1003, p2, OrderStatus.CANCLE, LocalDate.of(2020, 1, 6));
-		Order o4 = new Order(1003, p4, OrderStatus.DISPACHED, LocalDate.of(2020, 5, 6));
+		Order o4 = new Order(1004, p4, OrderStatus.DISPACHED, LocalDate.of(2020, 5, 6));
+		Order o5 = new Order(1005, p7, OrderStatus.DISPACHED, LocalDate.of(2020, 7, 6));
 
 		orderList.add(o1);
 		orderList.add(o2);
 		orderList.add(o3);
 		orderList.add(o4);
+		orderList.add(o5);
 
 		/**
 		 *RetailerInventory List having list of product,

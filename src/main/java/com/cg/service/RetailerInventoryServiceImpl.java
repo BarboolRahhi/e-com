@@ -34,7 +34,7 @@ public class RetailerInventoryServiceImpl implements RetailerInventoryService {
 	}
 
 	@Override
-	public List<Order> getAllDeliveredProductReport() throws ProductNotFound {
+	public List<Order> getDeliveredProductReport() throws ProductNotFound {
 		return dao.getProductReportByOrderStatus(OrderStatus.DILIVERED);
 	}
 

@@ -1,4 +1,4 @@
-package com.cg.dao;
+package com.cg.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,44 +18,40 @@ import com.cg.entity.Product;
 import com.cg.entity.RetailerInventory;
 import com.cg.service.RetailerInventoryService;
 import com.cg.service.RetailerInventoryServiceImpl;
+import com.cg.util.CgRepo;
 import com.cg.util.IdNotFound;
 import com.cg.util.OrderStatus;
 import com.cg.util.ProductNotFound;
 import com.cg.util.ValidationException;
 
 
-public class TestDispatchedProduct {
+public class TestCanceledProduct {
 
 	static RetailerInventoryService service;
+	static List<RetailerInventory> retailerList; 
 	static List<Order> orderList; 
 	
 	@BeforeAll
-	public static void testbeforeAll() {
+	public static void beforeAll() {
 		service = new RetailerInventoryServiceImpl();
 	}
 	
 	@BeforeEach
 	public void beforeEach() {
-		Product p4 = new Product(104, "hp Laptop", "Screen - 15in Ram - 16gb", 1, 45000);
-		Order o4 = new Order(1003, p4, OrderStatus.DISPACHED, LocalDate.of(2020, 5, 6));
+		Product p2 = new Product(102, "Charger C50", "Ram - 4gb Rom - 16gb", 2, 500);
+		Order o3 = new Order(1003, p2, OrderStatus.CANCLE, LocalDate.of(2020, 1, 6));
 		orderList = new ArrayList<Order>();
-		orderList.add(o4);
-	
+		orderList.add(o3);
 	}
-	
 	
 	@Test
 	public void test1() throws ProductNotFound {
-		assertEquals(orderList, service.getDispachedProductReport());
+		assertEquals(orderList, service.getCancelProductReport());
 	}
+
 	
-//	@Test
-//	public void test2() {
-//		assertThrows(ProductNotFound.class, ()-> service.getDispachedProductReport());
-//	}
-//	
 	@Test
-	public void test3() throws ProductNotFound {
-		assertEquals(orderList.size(), service.getDispachedProductReport().size());
+	public void test2() throws ProductNotFound {
+		assertEquals(1, service.getCancelProductReport().size());
 	}
 }
